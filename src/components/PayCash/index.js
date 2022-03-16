@@ -27,7 +27,16 @@ class PayCash extends Component {
     const {isPresentDetails} = this.state
     const {listDetails} = this.props
 
-    const {phoneNumber, date, time, fromState, toState, TypeCar} = listDetails
+    const {
+      phoneNumber,
+      date,
+      time,
+      fromState,
+      toState,
+      TypeCar,
+      selectAirport,
+      sourceCityName,
+    } = listDetails
 
     console.log(listDetails)
     return (
@@ -108,7 +117,11 @@ class PayCash extends Component {
             </div>
             <div className="mb-3">
               <p className="from-paragraph">From</p>
-              <p>{fromState}</p>
+              <p>{sourceCityName}</p>
+            </div>
+            <div className="mb-3">
+              <p className="from-paragraph">PlatForm</p>
+              <p>{selectAirport}</p>
             </div>
             <div className="mb-3">
               <p className="from-paragraph">To</p>

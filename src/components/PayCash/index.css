@@ -57,7 +57,7 @@
 .contratualation-heading {
   color: #800080;
   font-family: roboto;
-  font-size: 26px;
+  font-size: 17px;
   padding-top: 10px;
 }
 
@@ -72,6 +72,13 @@
 .congratulation-images-styling {
   height: 200px;
   width: 200px;
+}
+
+@media all and (max-width: 768px) {
+  .congratulation-images-styling {
+    height: 120px;
+    width: 120px;
+  }
 }
 
 .im-card-icons {

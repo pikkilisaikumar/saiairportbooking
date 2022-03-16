@@ -39,6 +39,7 @@ class AirPort extends Component {
     ActiveCity: 'Select City',
     airPortList: [],
     mobileNo: '',
+    sourceCityName: '',
     selectAirport: '',
     date: '',
     time: '',
@@ -82,14 +83,21 @@ class AirPort extends Component {
       const jsondata = await responsedata.json()
       console.log(jsondata)
       const paricularAirPort = jsondata[`${ActiveCity}`]
+      console.log(paricularAirPort)
       if (paricularAirPort === undefined) {
         this.setState({airPortList: []})
       } else {
         const totalAirPort = paricularAirPort.map(eachAirPort => ({
           id: eachAirPort.id,
           sourceName: eachAirPort.source_name,
+          sourceCity: eachAirPort.source_city,
         }))
-        this.setState({airPortList: totalAirPort})
+
+        this.setState({
+          airPortList: totalAirPort,
+          selectAirport: totalAirPort[0].sourceName,
+          sourceCityName: totalAirPort[0].sourceCity,
+        })
       }
     }
   }
@@ -103,6 +111,7 @@ class AirPort extends Component {
   }
 
   onAirportHandle = event => {
+    console.log(event.target.value)
     this.setState({selectAirport: event.target.value})
   }
 
@@ -122,6 +131,15 @@ class AirPort extends Component {
     this.setState({referalCode: event.target.value})
   }
 
+  ApplyBtnHandle = () => {
+    const {referalCode} = this.state
+    if (referalCode === '') {
+      this.setState({isReferalCodeTrue: true})
+    } else {
+      this.setState({isReferalCodeTrue: false})
+    }
+  }
+
   confirmBtn = () => {
     const {
       mobileNo,
@@ -131,6 +149,8 @@ class AirPort extends Component {
       toLocation,
       referalCode,
       TypeCar,
+      selectAirport,
+      sourceCityName,
     } = this.state
     if (
       mobileNo === '' &&
@@ -219,6 +239,8 @@ class AirPort extends Component {
         toState: toLocation,
         referenceCode: referalCode,
         TypeCar,
+        selectAirport,
+        sourceCityName,
       }
 
       this.setState({
@@ -323,7 +345,7 @@ class AirPort extends Component {
                     onChange={this.toLocationHandle}
                     value={toLocation}
                     type="text"
-                    placeholder="Drop location"
+                    placeholder="To location"
                     className="form-control mobile-number-input-box"
                   />
                   <BiCurrentLocation />
@@ -346,7 +368,11 @@ class AirPort extends Component {
                     placeholder="Have a referal code?"
                     className="form-control mobile-number-input-box"
                   />
-                  <button type="button" className="apply-button-styling">
+                  <button
+                    type="button"
+                    className="apply-button-styling"
+                    onClick={this.ApplyBtnHandle}
+                  >
                     <p className="apply-styling-paragraph">Apply</p>
                   </button>
                 </div>

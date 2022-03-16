@@ -11,6 +11,19 @@
   width: 120px;
   opacity: 0.5;
 }
+
+@media all and (max-width: 768px) {
+  .styling-one-image1 {
+    height: 80px;
+    width: 80px;
+    opacity: 0.5;
+  }
+  .styling-one-image {
+    height: 80px;
+    width: 80px;
+  }
+}
+
 .hrline-styling {
   border-color: red;
   border-width: 3px;
