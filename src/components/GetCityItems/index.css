@@ -1,0 +1,11 @@
+.mobilecity-container {
+  background-color: #e5e5e5;
+  padding: 12px;
+  width: 50%;
+  align-items: center;
+}
+.selectelement-styling {
+  outline: None;
+  background-color: transparent;
+  border-width: 0px;
+}

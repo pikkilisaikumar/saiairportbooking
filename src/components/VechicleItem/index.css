@@ -1,0 +1,22 @@
+.styling-one-image {
+  height: 120px;
+  width: 120px;
+}
+.name-image-list-item {
+  text-align: center;
+}
+
+.styling-one-image1 {
+  height: 120px;
+  width: 120px;
+  opacity: 0.5;
+}
+.hrline-styling {
+  border-color: red;
+  border-width: 3px;
+}
+.button-vechicle-styling {
+  background-color: transparent;
+  border-width: 0px;
+  outline: none;
+}

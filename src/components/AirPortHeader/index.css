@@ -1,0 +1,29 @@
+.fromairport-button {
+  background-color: black;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  border-width: 0px;
+  margin: 10px;
+  border-color: black;
+  border-radius: 10px;
+}
+
+.fromairport-button1 {
+  background-color: #cccccc;
+  color: black;
+  border-radius: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 2px solid black;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  border-width: 0px;
+  margin: 10px;
+}
+.from-to-airport-button-container {
+  display: flex;
+  justify-content: center;
+}

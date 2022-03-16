@@ -1,0 +1,19 @@
+.button-special-book-item {
+  background-color: transparent;
+  border-width: 0px;
+  outline: none;
+}
+.name-book-item-paragraph {
+  font-weight: bold;
+  text-decoration: underline;
+  border-width: 3px;
+  border-color: red;
+  color: red;
+}
+.name-book-item-paragraph1 {
+  font-weight: bold;
+  text-decoration: underline;
+  border-width: 3px;
+  border-color: black;
+  font-weight: bold;
+}
