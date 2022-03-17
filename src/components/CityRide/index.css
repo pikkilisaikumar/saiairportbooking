@@ -1,0 +1,80 @@
+.unorderlist-book-items {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+}
+.all-input-box-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.mobileNumber-container {
+  display: flex;
+  justify-content: space-between;
+  background-color: #e5e5e5;
+  padding: 7px;
+  width: 60%;
+  align-items: center;
+}
+.date-time-input-element {
+  background-color: transparent;
+  border-width: 0px;
+  outline: None;
+}
+
+.apply-button-styling {
+  background-color: transparent;
+  border-width: 0px;
+  outline: None;
+}
+
+.getcity-airport-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media all and (max-width: 768px) {
+  .getcity-airport-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.mobile-number-input-box {
+  width: 70%;
+  outline: none;
+  background-color: transparent;
+  border-width: 0px;
+}
+
+.mobileairport-container {
+  background-color: #e5e5e5;
+  padding: 12px;
+  width: 50%;
+  align-items: center;
+}
+.selectelement-styling-airport {
+  outline: None;
+  background-color: transparent;
+  border-width: 0px;
+}
+
+.required-field {
+  color: red;
+  text-align: left;
+  background-color: lightblue;
+  flex-grow: 1;
+}
+
+.apply-styling-paragraph {
+  color: red;
+}
+
+.confirm-button-pickup {
+  background-color: transparent;
+  border-width: 0px;
+  outline: none;
+  color: white;
+}

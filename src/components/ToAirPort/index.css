@@ -34,6 +34,14 @@
   justify-content: space-between;
 }
 
+.confirm-pickup-stying-one {
+  outline: None;
+  background-color: transparent;
+  border-width: 0px;
+  color: white;
+  font-family: 'roboto';
+}
+
 @media all and (max-width: 768px) {
   .getcity-airport-container {
     display: flex;
@@ -70,11 +78,4 @@
 
 .apply-styling-paragraph {
   color: red;
-}
-
-.confirm-button-pickup {
-  background-color: transparent;
-  border-width: 0px;
-  outline: none;
-  color: white;
 }

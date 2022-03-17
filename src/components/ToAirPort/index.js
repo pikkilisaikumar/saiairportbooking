@@ -30,7 +30,7 @@ const listBookingItem = [
   },
 ]
 
-class AirPort extends Component {
+class ToAirPort extends Component {
   state = {
     listDetails: {},
     selectedVechile: false,
@@ -40,8 +40,8 @@ class AirPort extends Component {
     mobileNo: '',
     sourceCityName: '',
     selectAirport: '',
-    date: new Date().toLocaleDateString(),
-    time: new Date().toLocaleTimeString(),
+    date1: '',
+    time1: '',
     toLocation: '',
     TypeCar:
       'https://mobisign-bucket.s3.ap-south-1.amazonaws.com/Cabs/departure_assets/new10Feb/new/Quickride/Sedan.jpg',
@@ -115,11 +115,11 @@ class AirPort extends Component {
   }
 
   onHandleDate = event => {
-    this.setState({date: event.target.value})
+    this.setState({date1: event.target.value})
   }
 
   onHandleTime = event => {
-    this.setState({time: event.target.value})
+    this.setState({time1: event.target.value})
   }
 
   toLocationHandle = event => {
@@ -153,8 +153,8 @@ class AirPort extends Component {
     const {
       mobileNo,
       ActiveCity,
-      date,
-      time,
+      date1,
+      time1,
       toLocation,
       referalCode,
       TypeCar,
@@ -252,8 +252,8 @@ class AirPort extends Component {
     } else {
       const finalData = {
         phoneNumber: mobileNo,
-        date,
-        time,
+        date: date1,
+        time: time1,
         fromState: ActiveCity,
         toState: toLocation,
         referenceCode: referalCode,
@@ -279,7 +279,9 @@ class AirPort extends Component {
       airPortList,
       mobileNo,
       selectAirport,
+      date1,
       isReferalCodeTrue,
+      time1,
       toLocation,
       referalCode,
       isMobileTrue,
@@ -295,7 +297,7 @@ class AirPort extends Component {
         {value => {
           const {isValueHandle} = value
 
-          const handleConfirmpickup = () => {
+          const confirmButtonToAirPort = () => {
             isValueHandle()
           }
 
@@ -331,6 +333,21 @@ class AirPort extends Component {
                           *please Enter a valid phone number
                         </p>
                       )}
+                      <div className="mt-2 mb-3 mobileNumber-container">
+                        <input
+                          onChange={this.toLocationHandle}
+                          value={toLocation}
+                          type="text"
+                          placeholder="Pickup location"
+                          className="form-control mobile-number-input-box"
+                        />
+                        <BiCurrentLocation />
+                      </div>
+                      {isToLocation && (
+                        <p className="required-field">
+                          *Please fill out this pickup location field
+                        </p>
+                      )}
                       <div className="mb-3 getcity-airport-container">
                         <GetCityItems
                           ActiveCity={ActiveCity}
@@ -353,21 +370,24 @@ class AirPort extends Component {
                           </select>
                         </div>
                       </div>
-                      <div className="mt-2 mb-3 mobileNumber-container">
-                        <input
-                          onChange={this.toLocationHandle}
-                          value={toLocation}
-                          type="text"
-                          placeholder="Drop location"
-                          className="form-control mobile-number-input-box"
-                        />
-                        <BiCurrentLocation />
+                      <div className="mb-3 getcity-airport-container">
+                        <div className="mobileairport-container m-2">
+                          <input
+                            onChange={this.onHandleDate}
+                            type="date"
+                            value={date1}
+                            className="date-time-input-element form-control"
+                          />
+                        </div>
+                        <div className="mobileairport-container m-2">
+                          <input
+                            value={time1}
+                            onChange={this.onHandleTime}
+                            type="time"
+                            className="date-time-input-element form-control"
+                          />
+                        </div>
                       </div>
-                      {isToLocation && (
-                        <p className="required-field">
-                          *Please fill out this drop location field
-                        </p>
-                      )}
                       <div>
                         <MiniSedanSuv
                           typeOfVehicleHandle={this.typeOfVehicleHandle}
@@ -407,8 +427,8 @@ class AirPort extends Component {
                         >
                           <button
                             type="button"
-                            className="confirm-button-pickup"
-                            onClick={handleConfirmpickup}
+                            className="confirm-pickup-stying-one"
+                            onClick={confirmButtonToAirPort}
                           >
                             Confirm pickup
                           </button>
@@ -428,4 +448,4 @@ class AirPort extends Component {
   }
 }
 
-export default AirPort
+export default ToAirPort

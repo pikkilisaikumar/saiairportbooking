@@ -7,6 +7,7 @@ const VechicleItem = props => {
     getVechicleHandle,
     typeOfVehicleHandle,
   } = props
+
   const {id, name, imageUrl} = eachVechicle
 
   const vechicleStyling = activeVechicle

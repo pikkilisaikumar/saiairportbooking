@@ -23,3 +23,12 @@
   font-weight: bold;
   padding-right: 15px;
 }
+
+.airport-city-ride-cab-button {
+  background-color: transparent;
+  border-width: 0px;
+  outline: none;
+}
+.link-items-cab {
+  text-decoration: none;
+}

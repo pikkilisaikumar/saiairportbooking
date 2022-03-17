@@ -42,24 +42,43 @@ class MiniSedanSuv extends Component {
   }
 
   getVechicleHandle = id => {
-    this.setState({activeData: id})
+    const {selectedVechile} = this.props
+    if (selectedVechile === true) {
+      this.setState({activeData: id})
+    }
   }
 
   render() {
     const {vehicleItem, activeData} = this.state
-    const {typeOfVehicleHandle} = this.props
+    const {typeOfVehicleHandle, selectedVechile} = this.props
     return (
-      <ul className="unorderlist-vechile">
-        {vehicleItem.map(eachVechicle => (
-          <VechicleItem
-            typeOfVehicleHandle={typeOfVehicleHandle}
-            key={eachVechicle.id}
-            eachVechicle={eachVechicle}
-            activeVechicle={activeData === eachVechicle.id}
-            getVechicleHandle={this.getVechicleHandle}
-          />
-        ))}
-      </ul>
+      <>
+        {selectedVechile ? (
+          <ul className="unorderlist-vechile">
+            {vehicleItem.map(eachVechicle => (
+              <VechicleItem
+                typeOfVehicleHandle={typeOfVehicleHandle}
+                key={eachVechicle.id}
+                eachVechicle={eachVechicle}
+                activeVechicle={activeData === eachVechicle.id}
+                getVechicleHandle={this.getVechicleHandle}
+              />
+            ))}
+          </ul>
+        ) : (
+          <ul className="unorderlist-vechile">
+            {vehicleItem.map(eachVechicle => (
+              <VechicleItem
+                typeOfVehicleHandle={typeOfVehicleHandle}
+                getVechicleHandle={this.getVechicleHandle}
+                key={eachVechicle.id}
+                eachVechicle={eachVechicle}
+                activeVechicle={activeData === eachVechicle.id}
+              />
+            ))}
+          </ul>
+        )}
+      </>
     )
   }
 }

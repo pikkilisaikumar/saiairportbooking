@@ -1,41 +1,69 @@
 import {Component} from 'react'
 
-import {Link} from 'react-router-dom'
+import ChangeContext from '../../context/ChangeContext'
 
 import './index.css'
 
 class Header extends Component {
-  state = {isTrue: true}
-
-  onclick = () => {
-    this.setState({isTrue: true})
-  }
-
-  onclick1 = () => {
-    this.setState({isTrue: false})
-  }
-
   render() {
-    const {isTrue} = this.state
     return (
-      <nav className="nav-header">
-        <Link to="/" className="link-item" onClick={this.onclick}>
-          {isTrue ? (
-            <h1 className="airport-city-cab">AIRPORT CAB</h1>
-          ) : (
-            <h1 className="airport-city-cab1">AIRPORT CAB</h1>
-          )}
-        </Link>
-        <Link to="/ride" className="link-item" onClick={this.onclick1}>
-          {isTrue ? (
-            <h1 className="airport-city-cab1">CITY RIDE</h1>
-          ) : (
-            <h1 className="airport-city-cab">CITY RIDE</h1>
-          )}
-        </Link>
-      </nav>
+      <ChangeContext.Consumer>
+        {value => {
+          const {isRideChange, rideChange, isRideChange1} = value
+
+          const onclick = () => {
+            isRideChange()
+          }
+
+          const onclick1 = () => {
+            isRideChange1()
+          }
+
+          return (
+            <nav className="nav-header">
+              {rideChange ? (
+                <button
+                  type="button"
+                  onClick={onclick}
+                  className="m-2 airport-city-ride-cab-button"
+                >
+                  <h1 className="airport-city-cab">AIRPORT CAB</h1>
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={onclick}
+                  className="m-2 airport-city-ride-cab-button"
+                >
+                  <h1 className="airport-city-cab1">AIRPORT CAB</h1>
+                </button>
+              )}
+
+              {rideChange ? (
+                <button
+                  type="button"
+                  onClick={onclick1}
+                  className="m-2 airport-city-ride-cab-button"
+                >
+                  <h1 className="airport-city-cab1">CITY RIDE</h1>
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={onclick1}
+                  className="m-2 airport-city-ride-cab-button"
+                >
+                  <h1 className="airport-city-cab">CITY RIDE</h1>
+                </button>
+              )}
+            </nav>
+          )
+        }}
+      </ChangeContext.Consumer>
     )
   }
 }
 
 export default Header
+
+// isRideChange, rideChange

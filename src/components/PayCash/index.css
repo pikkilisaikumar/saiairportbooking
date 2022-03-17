@@ -86,6 +86,14 @@
   font-size: 30px;
 }
 
+.okk-button-styling {
+  background-color: transparent;
+  outline: none;
+  border-width: 0px;
+  color: white;
+  font-family: 'Roboto';
+}
+
 .master-card-icons {
   font-size: 30px;
   color: #ecca00;
